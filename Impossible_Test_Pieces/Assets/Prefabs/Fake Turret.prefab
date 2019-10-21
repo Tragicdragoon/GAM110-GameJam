@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 3468045637325851652}
   - component: {fileID: 6917113722161345949}
   - component: {fileID: 4205645058494317778}
-  - component: {fileID: 6749908923756828595}
-  - component: {fileID: 6978268256372635669}
+  - component: {fileID: 6808539172553884194}
+  - component: {fileID: 8730094136551434413}
   m_Layer: 0
-  m_Name: Turret
-  m_TagString: CantPlace
+  m_Name: Fake Turret
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6749908923756828595
+--- !u!114 &6808539172553884194
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,13 +102,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6749908923756828594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b20777915bf6d24a83de6211ee50646, type: 3}
+  m_Script: {fileID: 11500000, guid: 01e23054090c8a74aa801966abae1254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  bullet: {fileID: 7503120937173435857, guid: 085dbb82947c5694783e22c9b880c917, type: 3}
-  radius: 4
---- !u!54 &6978268256372635669
+  isColliding: 0
+--- !u!54 &8730094136551434413
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,5 +120,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 94
+  m_Constraints: 116
   m_CollisionDetection: 0

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Turret_Control : MonoBehaviour
 {
-    public GameObject[] enemies;
+    List<GameObject> enemies;
     Transform target;
+    public GameObject spawner;
     public GameObject bullet;
     public float radius;
     Transform turret;
@@ -19,11 +20,13 @@ public class Turret_Control : MonoBehaviour
 
     void Update()
     {
+        enemies = spawner.GetComponent<Zombie_Spawning>().zombies;
+
         if (target != null)
         {
             if (Physics.Linecast(turret.position, target.position) && Vector3.Distance(turret.position, target.transform.position) < radius)
             {
-                turret.LookAt(target.position);
+                turret.LookAt(new Vector3(target.position.x, 0.5f, target.position.z));
                 fireRate -= Time.deltaTime;
 
                 if (fireRate <= 0)

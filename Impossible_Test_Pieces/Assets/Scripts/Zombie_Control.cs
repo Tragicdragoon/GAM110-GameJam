@@ -5,16 +5,18 @@ using UnityEngine;
 public class Zombie_Control : MonoBehaviour
 {
     public float speed;
-    public float newSpeed;
+    float newSpeed;
     public int health;
     float healthLost;
-    public Transform target;
+    Transform target;
     Rigidbody zombie;
+    public GameObject spawnPoint;
 
     void Start()
     {
         zombie = this.GetComponent<Rigidbody>();
         healthLost = 0;
+        target = spawnPoint.GetComponent<Zombie_Spawning>().target;
     }
 
     void Update()
@@ -35,6 +37,7 @@ public class Zombie_Control : MonoBehaviour
 
             if (health <= 0)
             {
+                spawnPoint.GetComponent<Zombie_Spawning>().zombies.Remove(this.gameObject);
                 Destroy(this.gameObject);
             }
         }

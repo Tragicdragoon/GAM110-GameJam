@@ -10,4 +10,12 @@ public class Bullet_Control : MonoBehaviour
     {
         this.GetComponent<Rigidbody>().velocity = transform.forward * speed;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Zombie"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
