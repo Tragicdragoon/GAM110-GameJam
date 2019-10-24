@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Turret_Spawner : MonoBehaviour
-{
-    public GameObject fakeTurret;
-    public GameObject turret;
+{ 
+    public List<GameObject> fakeTurrets;
+    public List<GameObject> turrets;
+    GameObject turret;
     GameObject newTurret;
     Vector2 mousePos;
     Ray pointingAt;
@@ -45,13 +46,58 @@ public class Turret_Spawner : MonoBehaviour
         }
     }
 
-    public void CreateTurret()
+    public void CreateFlamethrower()
     {
         if (newTurret != null)
         {
             Destroy(newTurret);
         }
-        newTurret = Instantiate(fakeTurret);
+        newTurret = Instantiate(fakeTurrets[0]);
+        turret = turrets[0];
+        placeTurret = true;
+    }
+
+    public void CreateGatlingGun()
+    {
+        if (newTurret != null)
+        {
+            Destroy(newTurret);
+        }
+        newTurret = Instantiate(fakeTurrets[1]);
+        turret = turrets[1];
+        placeTurret = true;
+    }
+
+    public void CreateMortar()
+    {
+        if (newTurret != null)
+        {
+            Destroy(newTurret);
+        }
+        newTurret = Instantiate(fakeTurrets[2]);
+        turret = turrets[2];
+        placeTurret = true;
+    }
+
+    public void CreateRailGun()
+    {
+        if (newTurret != null)
+        {
+            Destroy(newTurret);
+        }
+        newTurret = Instantiate(fakeTurrets[3]);
+        turret = turrets[3];
+        placeTurret = true;
+    }
+
+    public void CreateTesla()
+    {
+        if (newTurret != null)
+        {
+            Destroy(newTurret);
+        }
+        newTurret = Instantiate(fakeTurrets[4]);
+        turret = turrets[4];
         placeTurret = true;
     }
 }

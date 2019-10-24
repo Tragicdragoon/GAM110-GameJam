@@ -5,9 +5,9 @@ using UnityEngine;
 public class Zombie_Spawning : MonoBehaviour
 {
     Transform spawnPoint;
-    public Transform target;
     public GameObject zombiePrefab;
     public List<GameObject> zombies;
+    public GameObject nodes;
     float spawnTimer;
 
     void Start()
@@ -25,6 +25,7 @@ public class Zombie_Spawning : MonoBehaviour
             GameObject newZombie = Instantiate(zombiePrefab, spawnPoint);
             zombies.Add(newZombie);
             newZombie.GetComponent<Zombie_Control>().spawnPoint = this.gameObject;
+            newZombie.GetComponent<Zombie_Control>().nodes = nodes;
             spawnTimer = 3.0f;
         }
     }

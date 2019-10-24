@@ -5,6 +5,13 @@ using UnityEngine;
 public class Bullet_Control : MonoBehaviour
 {
     public float speed;
+    Transform target;
+
+    void Start()
+    {
+        target = GetComponentInParent<Turret_Control>().target;
+        transform.LookAt(target);
+    }
 
     void Update()
     {

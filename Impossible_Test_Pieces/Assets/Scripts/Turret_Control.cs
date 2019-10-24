@@ -5,34 +5,41 @@ using UnityEngine;
 public class Turret_Control : MonoBehaviour
 {
     List<GameObject> enemies;
-    Transform target;
+    public Transform target;
     public GameObject spawner;
     public GameObject bullet;
     public float radius;
     Transform turret;
-    float fireRate;
+    public float fireRate;
+    float tillFire;
+    public bool fixRotation;
+
     void Start()
     {
         target = null;
         turret = transform;
-        fireRate = 0;
+        tillFire = fireRate;
     }
 
     void Update()
     {
         enemies = spawner.GetComponent<Zombie_Spawning>().zombies;
+        tillFire -= Time.deltaTime;
 
         if (target != null)
         {
             if (Physics.Linecast(turret.position, target.position) && Vector3.Distance(turret.position, target.transform.position) < radius)
             {
                 turret.LookAt(new Vector3(target.position.x, 0.5f, target.position.z));
-                fireRate -= Time.deltaTime;
-
-                if (fireRate <= 0)
+                if(fixRotation == true)
                 {
-                    Instantiate(bullet, turret.position, turret.rotation);
-                    fireRate = 0.5f;
+                    turret.Rotate(new Vector3(0, 270, 0));
+                }
+
+                if (tillFire <= 0)
+                {
+                    Instantiate(bullet, turret);
+                    tillFire = fireRate;
                 }
                 
             }

@@ -7,6 +7,10 @@ TagManager:
   - Bullet
   - Zombie
   - CantPlace
+  - Pulse
+  - Blast
+  - Fire
+  - Node
   layers:
   - Default
   - TransparentFX
