@@ -5,7 +5,8 @@ using UnityEngine;
 public class Zombie_Control : MonoBehaviour
 {
     public float speed;
-    float newSpeed;
+    public float newSpeed;
+    float timeSpeed;
     public float health;
     float healthLost;
     Transform target;
@@ -30,7 +31,12 @@ public class Zombie_Control : MonoBehaviour
 
     void Update()
     {
-        newSpeed = speed - (healthLost / 10);
+        if (speed < 7)
+        {
+            timeSpeed = Time.fixedTime / 100;
+        }
+
+        newSpeed = speed - (healthLost / 10) + timeSpeed;
         Vector3 direction = new Vector3(target.position.x, transform.position.y, target.position.z);
         transform.LookAt(direction);
 
@@ -65,6 +71,8 @@ public class Zombie_Control : MonoBehaviour
         if (health <= 0)
         {
             spawnPoint.GetComponent<Zombie_Spawning>().zombies.Remove(this.gameObject);
+            spawnPoint.GetComponent<Score>().MediumZombie();
+            spawnPoint.GetComponent<Turret_Spawner>().resources +=3;
             Destroy(this.gameObject);
         }
     }
@@ -79,8 +87,8 @@ public class Zombie_Control : MonoBehaviour
 
         if (hit.CompareTag("Blast"))
         {
-            health -= 5;
-            healthLost += 5;
+            health -= 3;
+            healthLost += 3;
         }
 
         if (hit.CompareTag("Pulse"))
@@ -96,8 +104,11 @@ public class Zombie_Control : MonoBehaviour
         
         if (hit.CompareTag("Node"))
         {
-            currentNode += 1;
-            target = nodes.transform.GetChild(currentNode).transform;
+            if ((currentNode + 2) <= nodes.transform.childCount)
+            {
+                currentNode += 1;
+                target = nodes.transform.GetChild(currentNode).transform;
+            }
         }
     }
 }

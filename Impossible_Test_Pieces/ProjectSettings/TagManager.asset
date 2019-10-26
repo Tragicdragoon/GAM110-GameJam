@@ -11,6 +11,7 @@ TagManager:
   - Blast
   - Fire
   - Node
+  - CanPlace
   layers:
   - Default
   - TransparentFX

@@ -54,7 +54,7 @@ public class Turret_Control : MonoBehaviour
         {
             foreach (GameObject enemy in enemies)
             {
-                if (Physics.Linecast(turret.position, enemy.transform.position) && Vector3.Distance(turret.position, enemy.transform.position) < radius)
+                if (enemy != null && Physics.Linecast(turret.position, enemy.transform.position) && Vector3.Distance(turret.position, enemy.transform.position) < radius)
                 {
                     
                     target = enemy.transform;

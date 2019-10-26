@@ -628,6 +628,8 @@ GameObject:
   - component: {fileID: 6243153755484393221}
   - component: {fileID: 6243153755484393220}
   - component: {fileID: 6243153755484393223}
+  - component: {fileID: 7253389003971068947}
+  - component: {fileID: 166530749445392571}
   m_Layer: 0
   m_Name: tesla tower
   m_TagString: CantPlace
@@ -704,3 +706,38 @@ MonoBehaviour:
   radius: 4
   fireRate: 3
   fixRotation: 0
+--- !u!95 &7253389003971068947
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243153755484359097}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13daf5a8757cb15459f650d9b33e4b23, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &166530749445392571
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243153755484359097}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: e3a92eab89d75d84690d23b2a3f360d9, type: 3}
+  m_Animations:
+  - {fileID: 7400000, guid: e3a92eab89d75d84690d23b2a3f360d9, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
